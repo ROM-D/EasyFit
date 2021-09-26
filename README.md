@@ -1,6 +1,5 @@
 # EasyFit
-
-![LOGO](https://raw.githubusercontent.com/ROM-D/EasyFit/master/docs/logo.png)
+[LOGO](docs/logo.png)
 
 ![](https://img.shields.io/badge/Tools-GitHub-informational?style=flat&logo=GitHub&logoColor=white&color=4AB197) [![Github Badge](https://img.shields.io/github/forks/ROM-D/EasyFit?style=social)]() 
 
