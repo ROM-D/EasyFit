@@ -1,5 +1,7 @@
 # EasyFit
 
+![alt text](https://github.com/ROM-D/EasyFit/master/docs/logo.png)
+
 ![](https://img.shields.io/badge/Tools-GitHub-informational?style=flat&logo=GitHub&logoColor=white&color=4AB197) [![Github Badge](https://img.shields.io/github/forks/ROM-D/EasyFit?style=social)]() 
 
 <a href="url"><img src="https://st3.depositphotos.com/7651734/32305/v/380/depositphotos_323050886-stock-illustration-sport-strawberries-character-playing-football.jpg" align="center" height="150" width="150" ></a>
