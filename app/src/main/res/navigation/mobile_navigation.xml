@@ -12,14 +12,24 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="mx.romd.easyfit.ui.gallery.GalleryFragment"
+        android:id="@+id/nav_contactos"
+        android:name="mx.romd.easyfit.ui.contactos.ContactosFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_contactos" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="mx.romd.easyfit.ui.slideshow.SlideshowFragment"
+        android:id="@+id/nav_calendario"
+        android:name="mx.romd.easyfit.ui.calendario.CalendarioFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_calendario" />
+    <fragment
+        android:id="@+id/dietaFragment"
+        android:name="mx.romd.easyfit.ui.dieta.DietaFragment"
+        android:label="dieta_fragment"
+        tools:layout="@layout/dieta_fragment" />
+    <fragment
+        android:id="@+id/rutinaFragment"
+        android:name="mx.romd.easyfit.ui.rutina.RutinaFragment"
+        android:label="rutina_fragment"
+        tools:layout="@layout/rutina_fragment" />
 </navigation>

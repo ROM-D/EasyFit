@@ -9,12 +9,18 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_contactos"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:title="Mis contactos" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_calendario"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:title="Calendaro de citas" />
+        <item
+            android:id="@+id/nav_dietas"
+            android:title="Mis dietas" />
+        <item
+            android:id="@+id/nav_rutinas"
+            android:title="Mis rutinas" />
     </group>
 </menu>

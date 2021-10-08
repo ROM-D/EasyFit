@@ -5,4 +5,7 @@
     <color name="golden">#FFC72C</color>
     <color name="red">#F9423A</color>
     <color name="perry">#0A9E6A</color>
+    <color name="teal_200">#0A9E6A</color>
+    <color name="purple_200">#0A9E6A</color>
+    <color name="purple_700">#0A9E6A</color>
 </resources>

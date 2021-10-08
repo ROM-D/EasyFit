@@ -1,10 +1,10 @@
-package mx.romd.easyfit.ui.gallery
+package mx.romd.easyfit.ui.contactos
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class GalleryViewModel : ViewModel() {
+class ContactosViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is gallery Fragment"
