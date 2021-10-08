@@ -33,3 +33,6 @@ El proyecto no incluye:
 ### Contribution Guidelines
 ***
 [Contribution guidelines for this project](docs/CONTRIBUTING.md)
+
+Contribuitors:
+- Oscar Macias
