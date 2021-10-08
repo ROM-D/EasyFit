@@ -16,6 +16,7 @@ Desarrollar una aplicación para el sector deportivo/salud que centralice la org
 
 ### Alcance del proyecto
 ***
+Test Mich :)
 El proyecto incluye:
 * Enviar notificaciones a los usuarios que les recuerden los horarios de dieta y rutinas de entrenamientos.
 * Registrar las cuentas de entrenadores, nutriólogos y clientes.
