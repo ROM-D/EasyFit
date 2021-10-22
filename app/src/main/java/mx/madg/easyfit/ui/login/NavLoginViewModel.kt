@@ -1,4 +1,4 @@
-package mx.madg.easyfit
+package mx.madg.easyfit.ui.login
 
 import androidx.lifecycle.ViewModel
 

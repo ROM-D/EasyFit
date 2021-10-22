@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/michf/OneDrive/Documentos/TEC/7 Semestre/Apps/EasyFit/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/michf/OneDrive/Documentos/TEC/7 Semestre/Apps/EasyFit/app/src/main/res/layout/app_bar_main.xml" value="0.1640625" />
         <entry key="..\:/Users/michf/OneDrive/Documentos/TEC/7 Semestre/Apps/EasyFit/app/src/main/res/layout/content_main.xml" value="0.1796875" />
-        <entry key="..\:/Users/michf/OneDrive/Documentos/TEC/7 Semestre/Apps/EasyFit/app/src/main/res/menu/activity_main_drawer.xml" value="0.5" />
+        <entry key="..\:/Users/michf/OneDrive/Documentos/TEC/7 Semestre/Apps/EasyFit/app/src/main/res/layout/nav_header_main.xml" value="0.1640625" />
+        <entry key="..\:/Users/michf/OneDrive/Documentos/TEC/7 Semestre/Apps/EasyFit/app/src/main/res/layout/nav_login_fragment.xml" value="0.22" />
+        <entry key="..\:/Users/michf/OneDrive/Documentos/TEC/7 Semestre/Apps/EasyFit/app/src/main/res/menu/activity_main_drawer.xml" value="0.10666666666666667" />
+        <entry key="..\:/Users/michf/OneDrive/Documentos/TEC/7 Semestre/Apps/EasyFit/app/src/main/res/menu/main.xml" value="0.1640625" />
       </map>
     </option>
   </component>
