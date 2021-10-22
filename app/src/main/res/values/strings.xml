@@ -8,6 +8,11 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_rutinas">Rutinas</string>
+    <string name="menu_dietas">Dietas</string>
+    <string name="menu_perfil">Perfil</string>
+    <string name="menu_contacto">Contactos</string>
+    <string name="menu_calendario">Agendar cita</string>
+    <string name="menu_login">Login</string>
+
 </resources>

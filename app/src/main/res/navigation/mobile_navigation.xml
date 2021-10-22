@@ -12,14 +12,34 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_perfil"
         android:name="mx.madg.easyfit.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/menu_perfil"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_contactos"
         android:name="mx.madg.easyfit.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/menu_contacto"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_calendario"
+        android:name="mx.madg.easyfit.CalendarioFragment"
+        android:label="@string/menu_calendario"
+        tools:layout="@layout/calendario_fragment" />
+    <fragment
+        android:id="@+id/nav_dietas"
+        android:name="mx.madg.easyfit.nav_dietas"
+        android:label="@string/menu_dietas"
+        tools:layout="@layout/nav_dietas_fragment" />
+    <fragment
+        android:id="@+id/nav_rutinas"
+        android:name="mx.madg.easyfit.nav_rutinas"
+        android:label="@string/menu_rutinas"
+        tools:layout="@layout/nav_rutinas_fragment" />
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="mx.madg.easyfit.nav_login"
+        android:label="@string/menu_login"
+        tools:layout="@layout/nav_login_fragment" />
 </navigation>
