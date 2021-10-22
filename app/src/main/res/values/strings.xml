@@ -15,4 +15,7 @@
     <string name="menu_calendario">Agendar cita</string>
     <string name="menu_login">Login</string>
 
+    <!-- Navbar lateral -->
+    <string name="text_bienvenido">Bienvenid@</string>
+
 </resources>
