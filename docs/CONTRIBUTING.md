@@ -44,7 +44,7 @@ Step by step instructions:
 ```
 2. Otherwise, navigate to your main/master branch.
 ```
-  git checkout main/master
+  git checkout master
 ```
 3. Create a new branch with a significant name (representing the component being modified, ex. OSCAR-MAIN-SCREEN-NAVIGATION) and checkout to it.
 ```
@@ -55,18 +55,18 @@ Step by step instructions:
   git branch <branch-name>
   git checkout <branch-name>
 ```
-### Woring in the respective branches (Generate short commits)
+### Working in the respective branches (Generate short commits)
 ***
 Step by step instructions:
 1. Make sure to pull the most recent changes in the main project.
 ```
-  git pull upstream main
+  git pull upstream master
 ```
 2. Make sure you are located in your branch. 
 ```
   git branch
 ```
-3. Otherwise, navigate to your component branch.
+3. Otherwise, navigate to your component branch. Naming convention: MYNAME-FUNCTIONALITY
 ```
   git checkout <branch-name>
 ```
