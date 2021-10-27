@@ -21,10 +21,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var baseDatos: FirebaseDatabase
     private val CODIGO_SIGNIN: Int = 500
     private val mAuth = FirebaseAuth.getInstance()
+    private var tipo:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //binding = ActivityMainBinding.inflate(layoutInflater)
 
         bindingLogin = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(bindingLogin.root)
@@ -43,6 +43,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun configurarEventos() {
+        bindingLogin.switchNutriologo.setOnCheckedChangeListener { compoundButton, b ->
+            tipo = 1
+        }
+        bindingLogin.switchEntrenador.setOnCheckedChangeListener { compoundButton, b ->
+            tipo = 2
+        }
         bindingLogin.btnGoogleSignIn.setOnClickListener{
             autentificar()
         }
@@ -69,15 +75,59 @@ class MainActivity : AppCompatActivity() {
                     //Le manda los datos a la BD
                     //La instancia es un objeto que administra la autentificacion
                     val usuario = FirebaseAuth.getInstance().currentUser
-                    if(usuario == null){
+                    val referencia = baseDatos.getReference("Clientes/${usuario?.uid}/")
+                    if(tipo == 0){
                         val referencia = baseDatos.getReference("Clientes/${usuario?.uid}/")
+                        val existing = baseDatos.getReference().child("Clientes").child("${usuario?.uid}")
+                        if(existing != null){
+                            val cliente = Cliente(usuario!!.uid,usuario?.displayName , usuario?.email)
+                            referencia.setValue(cliente)
+                            // Lanzar otra actividad
+                            val view = Intent(this,ActivityNav::class.java)
+                            startActivity(view)
+                        }
+                        // Lanzar otra actividad
+                        val view = Intent(this,ActivityNav::class.java)
+                        startActivity(view)
+                    }else if(tipo == 1){
+                        val referencia = baseDatos.getReference("Nutriologos/${usuario?.uid}/")
+                        val existing = baseDatos.getReference().child("Nutriologos").child("${usuario?.uid}")
+                        if(existing != null){
+                            val cliente = Cliente(usuario!!.uid,usuario?.displayName , usuario?.email)
+                            referencia.setValue(cliente)
+                            // Lanzar otra actividad
+                            val view = Intent(this,ActivityNav::class.java)
+                            startActivity(view)
+                        }
+                        // Lanzar otra actividad
+                        val view = Intent(this,ActivityNav::class.java)
+                        startActivity(view)
+                    }else if(tipo == 2){
+                        val referencia = baseDatos.getReference("Entrenadores/${usuario?.uid}/")
+                        val existing = baseDatos.getReference().child("Entrenadores").child("${usuario?.uid}")
+                        if(existing != null){
+                            val cliente = Cliente(usuario!!.uid,usuario?.displayName , usuario?.email)
+                            referencia.setValue(cliente)
+                            // Lanzar otra actividad
+                            val view = Intent(this,ActivityNav::class.java)
+                            startActivity(view)
+                        }
+                        // Lanzar otra actividad
+                        val view = Intent(this,ActivityNav::class.java)
+                        startActivity(view)
+                    }
 
+                    /*val existing = baseDatos.getReference().child("Clientes").child("${usuario?.uid}")
+                    if(existing != null){
                         val cliente = Cliente(usuario?.uid,usuario?.displayName , usuario?.email)
                         referencia.setValue(cliente)
+                        // Lanzar otra actividad
+                        val view = Intent(this,ActivityNav::class.java)
+                        startActivity(view)
                     }
                     // Lanzar otra actividad
                     val view = Intent(this,ActivityNav::class.java)
-                    startActivity(view)
+                    startActivity(view)*/
                 }
 
                 RESULT_CANCELED -> {
