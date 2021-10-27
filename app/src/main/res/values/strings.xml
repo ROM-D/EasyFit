@@ -17,5 +17,9 @@
 
     <!-- Navbar lateral -->
     <string name="text_bienvenido">Bienvenid@</string>
+    <string name="nav_logout">Log out</string>
+
+    <!-- El perfil -->
+    <string name="text_btn_signout">Sign out</string>
 
 </resources>
