@@ -1,5 +1,6 @@
 package mx.madg.easyfit.ui.home
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -28,8 +29,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -47,7 +47,7 @@ class HomeFragment : Fragment() {
 
     private fun configurarEventos() {
         binding.btnSignout.setOnClickListener {
-            AuthUI.getInstance().signOut()
+            AuthUI.getInstance().signOut(requireContext())
             startActivity(Intent(activity,loginActivity::class.java))
         }
     }

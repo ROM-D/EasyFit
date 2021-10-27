@@ -11,6 +11,7 @@ import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import mx.madg.easyfit.databinding.ActivityLoginBinding
+import mx.madg.easyfit.ui.Cliente
 
 class MainActivity : AppCompatActivity() {
 
@@ -65,10 +66,15 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == CODIGO_SIGNIN) {
             when (resultCode) {
                 RESULT_OK -> {
+                    //Le manda los datos a la BD
                     //La instancia es un objeto que administra la autentificacion
-                    //val usuario = FirebaseAuth.getInstance().currentUser
-                    // Guardar los datos si es la primera vez, creo...
+                    val usuario = FirebaseAuth.getInstance().currentUser
+                    if(usuario == null){
+                        val referencia = baseDatos.getReference("Clientes/${usuario?.uid}/")
 
+                        val cliente = Cliente(usuario?.uid,usuario?.displayName , usuario?.email)
+                        referencia.setValue(cliente)
+                    }
                     // Lanzar otra actividad
                     val view = Intent(this,ActivityNav::class.java)
                     startActivity(view)
