@@ -7,24 +7,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-class nav_dietas : Fragment() {
+class ComidaDiaFragment : Fragment() {
 
     companion object {
-        fun newInstance() = nav_dietas()
+        fun newInstance() = ComidaDiaFragment()
     }
 
-    private lateinit var viewModel: NavDietasViewModel
+    private lateinit var viewModel: ComidaDiaViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.nav_dietas_fragment, container, false)
+        return inflater.inflate(R.layout.comida_dia_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(NavDietasViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ComidaDiaViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

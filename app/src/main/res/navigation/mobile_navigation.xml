@@ -29,9 +29,13 @@
         tools:layout="@layout/calendario_fragment" />
     <fragment
         android:id="@+id/nav_dietas"
-        android:name="mx.madg.easyfit.nav_dietas"
+        android:name="mx.madg.easyfit.DietasFragment"
         android:label="@string/menu_dietas"
-        tools:layout="@layout/nav_dietas_fragment" />
+        tools:layout="@layout/dietas_fragment" >
+        <action
+            android:id="@+id/action_nav_dietas_to_nav_comida_dia"
+            app:destination="@id/nav_comida_dia" />
+    </fragment>
     <fragment
         android:id="@+id/nav_rutinas"
         android:name="mx.madg.easyfit.nav_rutinas"
@@ -42,4 +46,13 @@
         android:name="mx.madg.easyfit.ui.login.nav_login"
         android:label="@string/menu_login"
         tools:layout="@layout/nav_login_fragment" />
+    <fragment
+        android:id="@+id/nav_comida_dia"
+        android:name="mx.madg.easyfit.ComidaDiaFragment"
+        android:label="comida_dia_fragment"
+        tools:layout="@layout/comida_dia_fragment" >
+        <argument
+            android:name="comida_dia"
+            app:argType="mx.madg.easyfit.Models.DietaDay" />
+    </fragment>
 </navigation>

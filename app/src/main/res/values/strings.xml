@@ -8,14 +8,16 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_rutinas">Rutinas</string>
-    <string name="menu_dietas">Dietas</string>
-    <string name="menu_perfil">Perfil</string>
-    <string name="menu_contacto">Contactos</string>
+    <string name="menu_rutinas">Mis Rutinas</string>
+    <string name="menu_dietas">Mi Dieta</string>
+    <string name="menu_perfil">Mi Perfil</string>
+    <string name="menu_contacto">Mis Contactos</string>
     <string name="menu_calendario">Agendar cita</string>
     <string name="menu_login">Login</string>
 
     <!-- Navbar lateral -->
     <string name="text_bienvenido">Bienvenid@</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
