@@ -9,6 +9,7 @@ data class Cliente(
     var sexo:String="",
     var porcentajeDeMusculo:Double=0.0,
     var porcentajeGrasaCorporal:Double=0.0,
-    var numeroDePliegues:Int = 0
+    var numeroDePliegues:Int = 0,
+    //var dieta:String=""
 
 )

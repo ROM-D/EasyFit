@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     private val CODIGO_SIGNIN: Int = 500
     private val mAuth = FirebaseAuth.getInstance()
     private var tipo:Int = 0
+    private var flag:Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,9 +46,15 @@ class MainActivity : AppCompatActivity() {
     private fun configurarEventos() {
         bindingLogin.switchNutriologo.setOnCheckedChangeListener { compoundButton, b ->
             tipo = 1
+            if(bindingLogin.switchNutriologo.isChecked && bindingLogin.switchEntrenador.isChecked){
+                bindingLogin.switchEntrenador.setChecked(false)
+            }
         }
         bindingLogin.switchEntrenador.setOnCheckedChangeListener { compoundButton, b ->
             tipo = 2
+            if(bindingLogin.switchNutriologo.isChecked && bindingLogin.switchEntrenador.isChecked){
+                bindingLogin.switchNutriologo.setChecked(false)
+            }
         }
         bindingLogin.btnGoogleSignIn.setOnClickListener{
             autentificar()
