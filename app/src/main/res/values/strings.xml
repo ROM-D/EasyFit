@@ -13,7 +13,6 @@
     <string name="menu_perfil">Perfil</string>
     <string name="menu_contacto">Contactos</string>
     <string name="menu_calendario">Agendar cita</string>
-    <string name="menu_login">Login</string>
 
     <!-- Navbar lateral -->
     <string name="text_bienvenido">Bienvenid@</string>
@@ -21,5 +20,10 @@
 
     <!-- El perfil -->
     <string name="text_btn_signout">Sign out</string>
+
+    <!-- El logIn -->
+    <string name="menu_login">Login</string>
+    <string name="login_nutrilogo">Nutriologo</string>
+    <string name="login_entrenador">Entrenador</string>
 
 </resources>

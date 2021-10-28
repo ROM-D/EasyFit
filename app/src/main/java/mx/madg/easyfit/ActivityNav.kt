@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ui.AppBarConfiguration
 import android.view.Menu
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -28,10 +29,10 @@ class ActivityNav: AppCompatActivity() {
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
-        /*binding.appBarMain.fab.setOnClickListener {
-            AuthUI.getInstance().signOut(this)
-            startActivity(Intent(this,loginActivity::class.java))
-        }*/
+        binding.appBarMain.fab.setOnClickListener {
+            //AuthUI.getInstance().signOut(baseContext)
+            //startActivity(Intent(this,loginActivity::class.java))
+        }
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
