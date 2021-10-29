@@ -11,13 +11,13 @@ data class DietaDay (
 object MyDiet {
 
     private val days = arrayListOf(
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
+        "LUNES",
+        "MARTES",
+        "MIÉRCOLES",
+        "JUEVES",
+        "VIERNES",
+        "SÁBADO",
+        "DOMINGO"
     )
 
     var dayList: ArrayList<DietaDay>? = null

@@ -54,5 +54,17 @@
         <argument
             android:name="comida_dia"
             app:argType="mx.madg.easyfit.Models.DietaDay" />
+        <action
+            android:id="@+id/action_nav_comida_dia_to_opcionesComidaFragment"
+            app:destination="@id/opcionesComidaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/opcionesComidaFragment"
+        android:name="mx.madg.easyfit.OpcionesComidaFragment"
+        android:label="opciones_comida_fragment"
+        tools:layout="@layout/opciones_comida_fragment" >
+        <argument
+            android:name="opcion_del_dia"
+            app:argType="mx.madg.easyfit.Models.DietaMeal" />
     </fragment>
 </navigation>

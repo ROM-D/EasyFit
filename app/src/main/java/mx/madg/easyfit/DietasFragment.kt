@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import mx.madg.easyfit.Models.DayAdapter
 import mx.madg.easyfit.Models.DietDayListener
 import mx.madg.easyfit.Models.MyDiet
+import mx.madg.easyfit.databinding.DietasFragmentBinding
 
 class DietasFragment : Fragment(), DietDayListener {
 
@@ -21,8 +22,8 @@ class DietasFragment : Fragment(), DietDayListener {
     }
 
     private lateinit var viewModel: NavDietasViewModel
-    private lateinit var biding: DietasFragment
-    private lateinit var  dietDaysAdapter : DayAdapter
+    private lateinit var binding: DietasFragmentBinding
+    private lateinit var dietDaysAdapter : DayAdapter
     //private var dietDaysAdapter = DayAdapter(requireContext(), MyDiet.dayList!!)
 
     override fun onCreateView(
@@ -59,6 +60,10 @@ class DietasFragment : Fragment(), DietDayListener {
         val dayMeal = dietDaysAdapter.days[position]
         val accion = DietasFragmentDirections.actionNavDietasToNavComidaDia(dayMeal)
         findNavController().navigate(accion)
+    }
+
+    override fun clickMeal(position: Int) {
+        TODO("Not yet implemented")
     }
 
 
