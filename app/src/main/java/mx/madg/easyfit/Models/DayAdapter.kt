@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
@@ -21,16 +22,12 @@ class DayAdapter(val context: Context, var days: ArrayList<DietaDay>) : Recycler
 
         private val txtDietDay = itemView.findViewById<TextView>(R.id.tvDay)
         // private val imvDone = itemView.findViewById<ImageView>(R.id.imv_favorites)
-        private val layout = itemView.findViewById<ConstraintLayout>(R.id.cLayout) // change to LL
+        private val layout = itemView.findViewById<LinearLayout>(R.id.cLayout) // change to LL
+
+        // TODO: New layout
 
         fun setData(day: DietaDay, position: Int) {
             txtDietDay.text = day.day
-
-            //if (day.isCompleted)
-              //  imvDone.setImageDrawable()
-            //else
-              //  imvDone.setImageDrawable()
-
             this.currentPosition = position
             this.currentDay = day
         }
@@ -53,7 +50,7 @@ class DayAdapter(val context: Context, var days: ArrayList<DietaDay>) : Recycler
         val day = days[position]
         holder.setData(day, position)
 
-        val layout = holder.itemView.findViewById<ConstraintLayout>(R.id.cLayout)
+        val layout = holder.itemView.findViewById<LinearLayout>(R.id.cLayout)
         layout.setOnClickListener {
             listener?.clickDay(position)
         }
