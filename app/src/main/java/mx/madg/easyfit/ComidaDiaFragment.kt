@@ -35,13 +35,13 @@ class ComidaDiaFragment : Fragment(), DietDayListener {
     ): View? {
         val view = inflater.inflate(R.layout.comida_dia_fragment, container, false)
         setupRecyclerView(view)
-        setupExternalData(view)
+        // setupExternalData(view)
         return view
     }
 
     private fun setupExternalData(view: View?) {
-        val tvDia = view?.findViewById<TextView>(R.id.tvDia)
-        tvDia?.text = args.comidaDia.day
+        // val tvDia = view?.findViewById<TextView>(R.id.tvDia)
+        // tvDia?.text = args.comidaDia.day
     }
 
     private fun setupRecyclerView(view: View?) {
@@ -76,6 +76,9 @@ class ComidaDiaFragment : Fragment(), DietDayListener {
         findNavController().navigate(accion)
     }
 
+    override fun clickOption(position: Int) {
+        TODO("Not used but required as it is an interface")
+    }
 
 
 }

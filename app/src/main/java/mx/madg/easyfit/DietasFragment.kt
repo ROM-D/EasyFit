@@ -63,7 +63,11 @@ class DietasFragment : Fragment(), DietDayListener {
     }
 
     override fun clickMeal(position: Int) {
-        TODO("Not yet implemented")
+        TODO("Not used but required as it is an interface")
+    }
+
+    override fun clickOption(position: Int) {
+        TODO("Not used but required as it is an interface")
     }
 
 

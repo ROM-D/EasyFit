@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,41 +12,23 @@
     app:cardCornerRadius="5dp">
 
     <LinearLayout
-        android:id="@+id/block_layout"
+        android:id="@+id/cLayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/tvDiaActual"
-            android:layout_width="wrap_content"
+            android:id="@+id/tvDiaDeLaSemana"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/perry"
+            android:background="@color/golden"
+            android:paddingLeft="35dp"
             android:paddingTop="8dp"
             android:text="DiaActual"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-
-        <androidx.constraintlayout.widget.Barrier
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="10"
-            app:barrierDirection="right" />
-
-        <TextView
-            android:id="@+id/tvComidaActual"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/perry"
-            android:paddingTop="8dp"
-            android:text="ComidaActual"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="20sp" />
 
     </LinearLayout>

@@ -5,10 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import mx.madg.easyfit.R
 
@@ -20,7 +18,7 @@ class DayAdapter(val context: Context, var days: ArrayList<DietaDay>) : Recycler
         private var currentPosition: Int = -1
         private var currentDay: DietaDay? = null
 
-        private val txtDietDay = itemView.findViewById<TextView>(R.id.tvDay)
+        private val txtDietDay = itemView.findViewById<TextView>(R.id.tvDiaDeLaSemana)
         // private val imvDone = itemView.findViewById<ImageView>(R.id.imv_favorites)
         private val layout = itemView.findViewById<LinearLayout>(R.id.cLayout) // change to LL
 

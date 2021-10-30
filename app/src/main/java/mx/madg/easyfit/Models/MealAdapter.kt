@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.appcompat.view.menu.ActionMenuItemView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import mx.madg.easyfit.R
 
@@ -21,7 +19,7 @@ class MealAdapter(val context: Context, val meals: ArrayList<DietaMeal>) : Recyc
         private var currentMeal: DietaMeal? = null
 
         // TODO: Initialize items in Screen
-        private val txtDietDay = itemView.findViewById<TextView>(R.id.tvDay)
+        private val txtDietDay = itemView.findViewById<TextView>(R.id.tvDiaDeLaSemana)
         private val txtMealHour = itemView.findViewById<TextView>(R.id.tvDate) // TODO: Implement time schedule
         private val layout = itemView.findViewById<LinearLayout>(R.id.cLayout)
 
