@@ -25,5 +25,14 @@
     <string name="menu_login">Login</string>
     <string name="login_nutrilogo">Nutriologo</string>
     <string name="login_entrenador">Entrenador</string>
+    <string name="id_1201939183">id: 1201939183</string>
+    <string name="actualizar_perfil">Actualizar perfil</string>
+    <string name="porcentaje_de_m_sculo">Porcentaje de músculo</string>
+    <string name="procentaje_de_grasa">Procentaje de grasa</string>
+    <string name="sexo">Sexo</string>
+    <string name="altura">Altura</string>
+    <string name="peso">Peso</string>
+    <string name="email">Email</string>
+    <string name="diego_elizalde">Diego Elizalde</string>
 
 </resources>
