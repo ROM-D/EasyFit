@@ -9,8 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EasyFit">
+        <!--<activity
+            android:name=".ui.Dieta.ComidaDia.ComidaDiaFragment"
+            android:exported="true" />-->
         <activity
-            android:name=".ComidaDiaFragment"
+            android:name=".ActivityNav"
+            android:exported="true" />
+        <activity
+            android:name=".loginActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

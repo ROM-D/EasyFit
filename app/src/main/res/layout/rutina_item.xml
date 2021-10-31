@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="3dp"
+    android:background="@color/white"
+    android:elevation="5dp"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="5dp">
+
+    <LinearLayout
+        android:id="@+id/crLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvrDiaDeLaSemana"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/golden"
+            android:paddingLeft="35dp"
+            android:paddingTop="8dp"
+            android:text="DiaActual"
+            android:textAlignment="textStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+            android:background="@color/golden"
+            android:paddingTop="8dp"
+            android:text="|"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvrDate"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="@color/golden"
+            android:paddingLeft="10dp"
+            android:paddingTop="8dp"
+            android:text="DD/MM/YY"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            app:barrierDirection="right" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

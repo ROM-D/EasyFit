@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/nav_login">
+    app:startDestination="@id/nav_home">
 
     <fragment
         android:id="@+id/nav_home"
@@ -24,12 +24,12 @@
         tools:layout="@layout/fragment_slideshow" />
     <fragment
         android:id="@+id/nav_calendario"
-        android:name="mx.madg.easyfit.CalendarioFragment"
+        android:name="mx.madg.easyfit.ui.Calendario.CalendarioFragment"
         android:label="@string/menu_calendario"
         tools:layout="@layout/calendario_fragment" />
     <fragment
         android:id="@+id/nav_dietas"
-        android:name="mx.madg.easyfit.DietasFragment"
+        android:name="mx.madg.easyfit.ui.Dieta.Dietas.DietasFragment"
         android:label="@string/menu_dietas"
         tools:layout="@layout/dietas_fragment" >
         <action
@@ -38,9 +38,13 @@
     </fragment>
     <fragment
         android:id="@+id/nav_rutinas"
-        android:name="mx.madg.easyfit.nav_rutinas"
+        android:name="mx.madg.easyfit.ui.Rutina.NavRutinas.nav_rutinas"
         android:label="@string/menu_rutinas"
-        tools:layout="@layout/nav_rutinas_fragment" />
+        tools:layout="@layout/nav_rutinas_fragment" >
+        <action
+            android:id="@+id/action_nav_rutinas_to_opcionesRutinasFragment"
+            app:destination="@id/opcionesRutinasFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_login"
         android:name="mx.madg.easyfit.ui.login.nav_login"
@@ -48,7 +52,7 @@
         tools:layout="@layout/nav_login_fragment" />
     <fragment
         android:id="@+id/nav_comida_dia"
-        android:name="mx.madg.easyfit.ComidaDiaFragment"
+        android:name="mx.madg.easyfit.ui.Dieta.ComidaDia.ComidaDiaFragment"
         android:label="comida_dia_fragment"
         tools:layout="@layout/comida_dia_fragment" >
         <argument
@@ -60,7 +64,7 @@
     </fragment>
     <fragment
         android:id="@+id/opcionesComidaFragment"
-        android:name="mx.madg.easyfit.OpcionesComidaFragment"
+        android:name="mx.madg.easyfit.ui.Dieta.OpcionesComida.OpcionesComidaFragment"
         android:label="opciones_comida_fragment"
         tools:layout="@layout/opciones_comida_fragment" >
         <argument
@@ -72,11 +76,20 @@
     </fragment>
     <fragment
         android:id="@+id/opcionFragment"
-        android:name="mx.madg.easyfit.OpcionFragment"
+        android:name="mx.madg.easyfit.ui.Dieta.Opcion.OpcionFragment"
         android:label="opcion_fragment"
         tools:layout="@layout/opcion_fragment" >
         <argument
             android:name="mi_opcion"
             app:argType="mx.madg.easyfit.Models.DietaOption" />
+    </fragment>
+    <fragment
+        android:id="@+id/opcionesRutinasFragment"
+        android:name="mx.madg.easyfit.ui.Rutina.OpcionesRutinas.OpcionesRutinasFragment"
+        android:label="opciones_rutinas_fragment"
+        tools:layout="@layout/opciones_rutinas_fragment" >
+        <argument
+            android:name="opciones_rutinas"
+            app:argType="mx.madg.easyfit.Models.RutinaDay" />
     </fragment>
 </navigation>

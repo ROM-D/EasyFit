@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "357654607347",
+    "firebase_url": "https://easyfit-15fb1-default-rtdb.firebaseio.com",
     "project_id": "easyfit-15fb1",
     "storage_bucket": "easyfit-15fb1.appspot.com"
   },
@@ -13,6 +14,38 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "357654607347-0irlr4gkph92asrbosg78ij4fnbhctjj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mx.madg.easyfit",
+            "certificate_hash": "7d6c9d167fef9a3dfe3b2283ae60616ce675bf00"
+          }
+        },
+        {
+          "client_id": "357654607347-8p9b2erttm5uqabn334kv5tla1v75n8s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mx.madg.easyfit",
+            "certificate_hash": "aa367c44c01c7e019c675637773c9aa08319c990"
+          }
+        },
+        {
+          "client_id": "357654607347-iglklggsbdl3v6unucasr22jku0rhaut.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mx.madg.easyfit",
+            "certificate_hash": "20c8e8a4af993fd49bccc3fc00524e777dbdef93"
+          }
+        },
+        {
+          "client_id": "357654607347-k33nbvbm9f4t5qe1slraobior5stth76.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mx.madg.easyfit",
+            "certificate_hash": "1ad401976457de0d6f9e7cc5d0bc211d29928a74"
+          }
+        },
         {
           "client_id": "357654607347-ueshlup0ohvunqdgp3abhmqcn1qck8dc.apps.googleusercontent.com",
           "client_type": 3
