@@ -48,12 +48,14 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
 
-    // Para crear el action que manda datos a la segunda pantalla (app)
+
+    // Para crear el action que manda datos a la segunda pantalla (app
     implementation "androidx.fragment:fragment-ktx:1.3.6"
 
     // FIREBASE
     implementation 'com.google.firebase:firebase-common-ktx:20.0.0'
     implementation 'com.google.firebase:firebase-database:20.0.2'
+    implementation 'com.google.firebase:firebase-database-ktx:20.0.2'
 
     // AUTH
     implementation 'com.google.firebase:firebase-auth-ktx:21.0.1'
@@ -62,6 +64,15 @@ dependencies {
     //implementation 'com.google.firebase:firebase-database:20.0.2'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.preference:preference:1.1.1'
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    implementation 'com.google.firebase:firebase-common-ktx:20.0.0'
+    implementation 'com.google.firebase:firebase-database:20.0.2'
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.1'
+    implementation 'com.firebaseui:firebase-ui-auth:8.0.0'
+
+
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'

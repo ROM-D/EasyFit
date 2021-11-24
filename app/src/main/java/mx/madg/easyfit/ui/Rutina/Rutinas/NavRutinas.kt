@@ -1,4 +1,4 @@
-package mx.madg.easyfit.ui.Rutina.NavRutinas
+package mx.madg.easyfit.ui.Rutina.Rutinas
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -16,10 +16,11 @@ import mx.madg.easyfit.Models.Listeners.RutinaDayListener
 import mx.madg.easyfit.R
 import mx.madg.easyfit.databinding.NavHeaderMainBinding
 
-class nav_rutinas : Fragment(), RutinaDayListener {
+
+class NavRutinas : Fragment(), RutinaDayListener {
 
     companion object {
-        fun newInstance() = nav_rutinas()
+        fun newInstance() = NavRutinas()
     }
 
     private lateinit var viewModel: NavRutinasViewModel
@@ -58,7 +59,7 @@ class nav_rutinas : Fragment(), RutinaDayListener {
     override fun clickDay(position: Int) {
         Log.i("Position", "Position: $position")
         val rutinaDay = rutinaDaysAdapter.days[position]
-        val accion = nav_rutinasDirections.actionNavRutinasToOpcionesRutinasFragment(rutinaDay)
+        val accion = NavRutinasDirections.actionNavRutinasToOpcionesRutinasFragment(rutinaDay)
         findNavController().navigate(accion)
     }
 

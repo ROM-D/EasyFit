@@ -38,7 +38,7 @@
     </fragment>
     <fragment
         android:id="@+id/nav_rutinas"
-        android:name="mx.madg.easyfit.ui.Rutina.NavRutinas.nav_rutinas"
+        android:name="mx.madg.easyfit.ui.Rutina.Rutinas.NavRutinas"
         android:label="@string/menu_rutinas"
         tools:layout="@layout/nav_rutinas_fragment" >
         <action
@@ -49,7 +49,11 @@
         android:id="@+id/nav_login"
         android:name="mx.madg.easyfit.ui.login.nav_login"
         android:label="@string/menu_login"
-        tools:layout="@layout/nav_login_fragment" />
+        tools:layout="@layout/nav_login_fragment" >
+        <action
+            android:id="@+id/action_nav_login_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
     <fragment
         android:id="@+id/nav_comida_dia"
         android:name="mx.madg.easyfit.ui.Dieta.ComidaDia.ComidaDiaFragment"
@@ -92,4 +96,5 @@
             android:name="opciones_rutinas"
             app:argType="mx.madg.easyfit.Models.RutinaDay" />
     </fragment>
+
 </navigation>

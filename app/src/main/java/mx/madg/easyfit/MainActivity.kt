@@ -1,148 +1,59 @@
 package mx.madg.easyfit
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
+import android.view.Menu
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.navigation.NavigationView
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.firebase.ui.auth.AuthUI
-import com.firebase.ui.auth.IdpResponse
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
-import mx.madg.easyfit.Models.Cliente.Cliente
-import mx.madg.easyfit.databinding.ActivityLoginBinding
-
+import mx.madg.easyfit.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    //private lateinit var appBarConfiguration: AppBarConfiguration
-    //private lateinit var binding: ActivityMainBinding
-    private lateinit var bindingLogin: ActivityLoginBinding
-    private lateinit var baseDatos: FirebaseDatabase
-    private val CODIGO_SIGNIN: Int = 500
-    private val mAuth = FirebaseAuth.getInstance()
-    private var tipo:Int = 0
-    private var flag:Boolean = true
+    private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        bindingLogin = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(bindingLogin.root)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        baseDatos = FirebaseDatabase.getInstance()
-        configurarEventos()
-    }
+        setSupportActionBar(binding.appBarMain.toolbar)
 
-    override fun onStart() {
-        super.onStart()
-        val usuario = mAuth.currentUser
-        if(usuario != null){
-            val view = Intent(this,ActivityNav::class.java)
-            startActivity(view)
+        binding.appBarMain.fab.setOnClickListener { view ->
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
         }
-    }
-
-    private fun configurarEventos() {
-        bindingLogin.switchNutriologo.setOnCheckedChangeListener { compoundButton, b ->
-            tipo = 1
-            if(bindingLogin.switchNutriologo.isChecked && bindingLogin.switchEntrenador.isChecked){
-                bindingLogin.switchEntrenador.setChecked(false)
-            }
-        }
-        bindingLogin.switchEntrenador.setOnCheckedChangeListener { compoundButton, b ->
-            tipo = 2
-            if(bindingLogin.switchNutriologo.isChecked && bindingLogin.switchEntrenador.isChecked){
-                bindingLogin.switchNutriologo.setChecked(false)
-            }
-        }
-        bindingLogin.btnGoogleSignIn.setOnClickListener{
-            autentificar()
-        }
-    }
-
-    private fun autentificar() {
-        val providers = arrayListOf(AuthUI.IdpConfig.GoogleBuilder().build())
-
-        //Quiero empezar una actividad y espero un resultado
-        startActivityForResult(
-            AuthUI.getInstance()
-                .createSignInIntentBuilder()
-                .setAvailableProviders(providers)
-                .build(),
-            CODIGO_SIGNIN
+        val drawerLayout: DrawerLayout = binding.drawerLayout
+        val navView: NavigationView = binding.navView
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.nav_home, R.id.nav_perfil, R.id.nav_contactos,
+                R.id.nav_calendario, R.id.nav_dietas, R.id.nav_rutinas,
+                R.id.nav_login
+            ), drawerLayout
         )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == CODIGO_SIGNIN) {
-            when (resultCode) {
-                RESULT_OK -> {
-                    //Le manda los datos a la BD
-                    //La instancia es un objeto que administra la autentificacion
-                    val usuario = FirebaseAuth.getInstance().currentUser
-                    val referencia = baseDatos.getReference("Clientes/${usuario?.uid}/")
-                    if(tipo == 0){
-                        val referencia = baseDatos.getReference("Clientes/${usuario?.uid}/")
-                        val existing = baseDatos.getReference().child("Clientes").child("${usuario?.uid}")
-                        if(existing != null){
-                            val cliente = Cliente(usuario!!.uid,usuario?.displayName , usuario?.email)
-                            referencia.setValue(cliente)
-                            // Lanzar otra actividad
-                            val view = Intent(this,ActivityNav::class.java)
-                            startActivity(view)
-                        }
-                        // Lanzar otra actividad
-                        val view = Intent(this,ActivityNav::class.java)
-                        startActivity(view)
-                    }else if(tipo == 1){
-                        val referencia = baseDatos.getReference("Nutriologos/${usuario?.uid}/")
-                        val existing = baseDatos.getReference().child("Nutriologos").child("${usuario?.uid}")
-                        if(existing != null){
-                            val cliente = Cliente(usuario!!.uid,usuario?.displayName , usuario?.email)
-                            referencia.setValue(cliente)
-                            // Lanzar otra actividad
-                            val view = Intent(this,ActivityNav::class.java)
-                            startActivity(view)
-                        }
-                        // Lanzar otra actividad
-                        val view = Intent(this,ActivityNav::class.java)
-                        startActivity(view)
-                    }else if(tipo == 2){
-                        val referencia = baseDatos.getReference("Entrenadores/${usuario?.uid}/")
-                        val existing = baseDatos.getReference().child("Entrenadores").child("${usuario?.uid}")
-                        if(existing != null){
-                            val cliente = Cliente(usuario!!.uid,usuario?.displayName , usuario?.email)
-                            referencia.setValue(cliente)
-                            // Lanzar otra actividad
-                            val view = Intent(this,ActivityNav::class.java)
-                            startActivity(view)
-                        }
-                        // Lanzar otra actividad
-                        val view = Intent(this,ActivityNav::class.java)
-                        startActivity(view)
-                    }
-
-                    /*val existing = baseDatos.getReference().child("Clientes").child("${usuario?.uid}")
-                    if(existing != null){
-                        val cliente = Cliente(usuario?.uid,usuario?.displayName , usuario?.email)
-                        referencia.setValue(cliente)
-                        // Lanzar otra actividad
-                        val view = Intent(this,ActivityNav::class.java)
-                        startActivity(view)
-                    }
-                    // Lanzar otra actividad
-                    val view = Intent(this,ActivityNav::class.java)
-                    startActivity(view)*/
-                }
-
-                RESULT_CANCELED -> {
-                    Toast.makeText(this, "No se ha podido iniciar sesión", Toast.LENGTH_SHORT).show()
-                }
-                else -> {
-                    Toast.makeText(this, "No se ha podido iniciar sesión", Toast.LENGTH_SHORT).show()
-                } }
-        }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.main, menu)
+        return true
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
 }

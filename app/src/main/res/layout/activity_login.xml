@@ -2,10 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".loginActivity">
+    tools:context=".ui.login.LoginActivity">
 
     <ImageView
         android:id="@+id/imageView3"
@@ -23,7 +24,8 @@
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:text="Nutriologo"
-        android:textColor="@color/golden"
+        android:textColor="@color/perry"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnGoogleSignIn" />
@@ -34,7 +36,8 @@
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
         android:text="Entrenador"
-        android:textColor="@color/golden"
+        android:textColor="@color/perry"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/switchNutriologo" />
@@ -64,6 +67,4 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9"
         tools:ignore="MissingConstraints" />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
-

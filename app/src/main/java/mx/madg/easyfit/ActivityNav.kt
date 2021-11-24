@@ -24,6 +24,7 @@ class ActivityNav: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityNavBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

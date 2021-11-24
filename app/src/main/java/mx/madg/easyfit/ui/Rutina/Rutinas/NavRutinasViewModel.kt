@@ -1,4 +1,4 @@
-package mx.madg.easyfit.ui.Rutina.NavRutinas
+package mx.madg.easyfit.ui.Rutina.Rutinas
 
 import androidx.lifecycle.ViewModel
 
