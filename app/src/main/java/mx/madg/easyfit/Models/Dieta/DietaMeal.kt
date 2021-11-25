@@ -5,7 +5,8 @@ import java.io.Serializable
 data class DietaMeal (
     var meal: String = "",
     var isCompleted: Boolean,
-    var day: String = ""
+    var selected: Int,
+    var day: String = "",
 ) : Serializable
 
 object MyMeal {
@@ -26,7 +27,7 @@ object MyMeal {
             field = ArrayList()
             for (i in meals.indices) {
                 val mealName = meals[i]
-                val meal = DietaMeal(mealName, false)
+                val meal = DietaMeal(mealName, false, i)
                 field!!.add(meal)
             }
 

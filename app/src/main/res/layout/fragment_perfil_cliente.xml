@@ -5,7 +5,7 @@
     android:id="@+id/idPeso"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.gallery.GalleryFragment">
+    tools:context=".ui.Perfiles.PerfilCliente.PerfilClienteFragment">
 
     <!-- app:layout_constraintBottom_toTopOf="@+id/btnSignout" -->
 

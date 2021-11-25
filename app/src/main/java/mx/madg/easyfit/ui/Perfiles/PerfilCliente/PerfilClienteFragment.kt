@@ -1,13 +1,11 @@
-package mx.madg.easyfit.ui.gallery
-import android.app.Activity
+package mx.madg.easyfit.ui.Perfiles.PerfilCliente
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
@@ -17,16 +15,18 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import mx.madg.easyfit.ActivityNav
 import mx.madg.easyfit.Models.Cliente.Cliente
-import mx.madg.easyfit.R
-import mx.madg.easyfit.databinding.FragmentGalleryBinding
+import mx.madg.easyfit.Models.Dieta.Dia
+import mx.madg.easyfit.databinding.FragmentPerfilClienteBinding
 import mx.madg.easyfit.ui.login.LoginActivity
 
 
-class GalleryFragment : Fragment() {
+class PerfilClienteFragment : Fragment() {
 
-    private lateinit var galleryViewModel: GalleryViewModel
-    private var _binding: FragmentGalleryBinding? = null
+    private lateinit var perfilClienteViewModel: PerfilClienteViewModel
+    private var _binding: FragmentPerfilClienteBinding? = null
+
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -37,15 +37,12 @@ class GalleryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        galleryViewModel = ViewModelProvider(this).get(GalleryViewModel::class.java)
+        perfilClienteViewModel = ViewModelProvider(this).get(PerfilClienteViewModel::class.java)
 
-        _binding = FragmentGalleryBinding.inflate(inflater, container, false)
+        _binding = FragmentPerfilClienteBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-
-
         configurarEventos()
-
         return root
     }
 
@@ -59,7 +56,7 @@ class GalleryFragment : Fragment() {
         val usuario = FirebaseAuth.getInstance().currentUser
 
         //Clientes
-        val referencia = baseDatos.getReference("Clientes/${usuario?.uid}")
+        val referencia = baseDatos.getReference("Clientes/${usuario?.uid}/")
         //println("LA REFERENCIA: ${referencia}")
 
         //Se actualiza cada vez que me llegue un dato
@@ -67,9 +64,9 @@ class GalleryFragment : Fragment() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 //println("LA REFERENCIA: ${referencia}")
                 //println("EL SNAPSHOT: ${snapshot}")
-                val cliente =snapshot.getValue(Cliente::class.java)
+                val cliente = snapshot.getValue(Cliente::class.java)
                 binding.tvNombre.setText(cliente?.nombre.toString())
-                val id = "id: "+cliente?.id.toString()
+                val id = "id: " + cliente?.id.toString()
                 binding.tvId.setText(id)
                 binding.tvEmail.setText(cliente?.mail.toString())
                 binding.tvPeso.setText(cliente?.peso.toString())
@@ -78,8 +75,6 @@ class GalleryFragment : Fragment() {
                 binding.tvPorcentajeGrasa.setText(cliente?.porcentajeGrasaCorporal.toString())
                 binding.tvPorcentajeMusculo.setText(cliente?.porcentajeDeMusculo.toString())
                 binding.imageProfile.setImageURI(usuario?.photoUrl)
-
-
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -92,8 +87,9 @@ class GalleryFragment : Fragment() {
     private fun configurarEventos() {
         binding.btnSignout.setOnClickListener {
             AuthUI.getInstance().signOut(requireContext())
-            startActivity(Intent(activity, LoginActivity::class.java))
+            startActivity(Intent(activity, ActivityNav::class.java))
         }
+
         binding.btnActualizarPerfil.setOnClickListener{
             ActualizarDatos()
         }
@@ -110,6 +106,7 @@ class GalleryFragment : Fragment() {
             usuario?.uid.toString(),
             binding.tvNombre.text.toString(),
             binding.tvEmail.text.toString(),
+            arrayListOf<Dia>(),
             binding.tvPeso.text.toString().toDouble(),
             binding.tvAltura.text.toString().toDouble(),
             binding.tvSexo.text.toString(),
@@ -118,8 +115,6 @@ class GalleryFragment : Fragment() {
             0,
         )
         referencia.setValue(valor)
-
-
 
     }
 

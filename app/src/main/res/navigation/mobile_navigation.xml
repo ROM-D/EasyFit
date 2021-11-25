@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/nav_perfil"
-        android:name="mx.madg.easyfit.ui.gallery.GalleryFragment"
+        android:name="mx.madg.easyfit.ui.Perfiles.PerfilCliente.PerfilClienteFragment"
         android:label="@string/menu_perfil"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_perfil_cliente" />
 
     <fragment
         android:id="@+id/nav_contactos"
@@ -45,15 +45,7 @@
             android:id="@+id/action_nav_rutinas_to_opcionesRutinasFragment"
             app:destination="@id/opcionesRutinasFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/nav_login"
-        android:name="mx.madg.easyfit.ui.login.nav_login"
-        android:label="@string/menu_login"
-        tools:layout="@layout/nav_login_fragment" >
-        <action
-            android:id="@+id/action_nav_login_to_nav_home"
-            app:destination="@id/nav_home" />
-    </fragment>
+
     <fragment
         android:id="@+id/nav_comida_dia"
         android:name="mx.madg.easyfit.ui.Dieta.ComidaDia.ComidaDiaFragment"

@@ -5,7 +5,8 @@ import java.io.Serializable
 data class DietaOption (
     var day: String = "",
     var opcion: String = "",
-    var descripcion: String = ""
+    var descripcion: String = "",
+    var selected: Int,
 ) : Serializable
 
 object MyOption {
@@ -24,7 +25,7 @@ object MyOption {
             field = ArrayList()
             for (i in opciones.indices) {
                 val optionName = opciones[i]
-                val opcion = DietaOption("",optionName, "Write description ...")
+                val opcion = DietaOption("",optionName, "Write description ...", i)
                 field!!.add(opcion)
             }
 
