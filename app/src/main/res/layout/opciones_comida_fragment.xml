@@ -20,7 +20,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView4">
 
         <TextView
-            android:id="@+id/tvDiaDeLaSemana"
+            android:id="@+id/tvNombreContacto"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

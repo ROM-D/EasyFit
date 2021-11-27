@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -20,6 +21,7 @@ import com.google.firebase.ktx.Firebase
 import mx.madg.easyfit.Models.Cliente.Cliente
 import mx.madg.easyfit.R
 import mx.madg.easyfit.databinding.FragmentHomeBinding
+import mx.madg.easyfit.ui.Contactos.ContactosFragmentDirections
 
 
 import mx.madg.easyfit.ui.home.HomeViewModel
@@ -49,7 +51,25 @@ class HomeFragment : Fragment() {
             //textView.text = it
         })
 
+        configurarEventos()
         return root
+    }
+
+    private fun configurarEventos() {
+        binding.btnGoToDietas.setOnClickListener {
+            val accion = HomeFragmentDirections.actionNavHomeToNavDietas()
+            findNavController().navigate(accion)
+        }
+
+        binding.btnGoToRutinas.setOnClickListener {
+            val accion = HomeFragmentDirections.actionNavHomeToNavRutinas()
+            findNavController().navigate(accion)
+        }
+
+        binding.btnAcercaDe.setOnClickListener {
+            val accion = HomeFragmentDirections.actionNavHomeToAcercaDeFragment()
+            findNavController().navigate(accion)
+        }
     }
 
     override fun onStart() {

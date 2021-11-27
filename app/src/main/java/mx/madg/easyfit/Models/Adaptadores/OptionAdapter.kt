@@ -21,7 +21,7 @@ class OptionAdapter(val context: Context, var options: ArrayList<DietaOption>) :
         private var currentOption: DietaOption? = null
 
         // TODO: Call objects from Layout
-        val txtOpcion = itemView.findViewById<TextView>(R.id.tvDiaDeLaSemana)
+        val txtOpcion = itemView.findViewById<TextView>(R.id.tvNombreContacto)
 
         fun setData(option: DietaOption, position: Int) {
             txtOpcion.text = option.opcion

@@ -7,6 +7,8 @@ data class DietaOption (
     var opcion: String = "",
     var descripcion: String = "",
     var selected: Int,
+    var daySelected: Int = 0,
+    var mealSelected: Int = 0,
 ) : Serializable
 
 object MyOption {

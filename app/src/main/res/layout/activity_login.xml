@@ -12,7 +12,7 @@
         android:id="@+id/imageView3"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -41,6 +41,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/switchNutriologo" />
+
+    <Switch
+        android:id="@+id/switchCliente"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:text="Cliente"
+        android:textColor="@color/perry"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switchEntrenador" />
+
 
     <TextView
         android:id="@+id/textView9"

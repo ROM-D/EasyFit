@@ -59,6 +59,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
+                android:enabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvId">
@@ -81,11 +82,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout7">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <EditText
                     android:id="@+id/tvPeso"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Peso" />
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Peso"
+                    android:inputType="numberDecimal"
+                    tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -99,11 +104,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <EditText
                     android:id="@+id/tvAltura"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Altura" />
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Altura"
+                    android:inputType="numberDecimal"
+                    tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -117,11 +126,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <EditText
                     android:id="@+id/tvSexo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Sexo" />
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Sexo"
+                    android:inputType="textPersonName"
+                    tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -135,11 +148,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <EditText
                     android:id="@+id/tvPorcentajeGrasa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Porcentaje de grasa" />
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Porcentaje de grasa"
+                    android:inputType="numberDecimal"
+                    tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -153,11 +170,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout8">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <EditText
                     android:id="@+id/tvPorcentajeMusculo"
                     android:layout_width="match_parent"
-                    android:layout_height="51dp"
-                    android:hint="Porcentaje de musculo" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Porcentaje de musculo"
+                    android:inputType="numberDecimal"
+                    tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button

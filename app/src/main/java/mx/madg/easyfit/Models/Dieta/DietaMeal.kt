@@ -6,6 +6,7 @@ data class DietaMeal (
     var meal: String = "",
     var isCompleted: Boolean,
     var selected: Int,
+    var daySelected: Int = 0,
     var day: String = "",
 ) : Serializable
 

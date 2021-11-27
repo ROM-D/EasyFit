@@ -7,10 +7,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import mx.madg.easyfit.Models.*
 import mx.madg.easyfit.Models.Adaptadores.MealAdapter
 import mx.madg.easyfit.Models.Listeners.DietDayListener
@@ -24,8 +27,10 @@ class ComidaDiaFragment : Fragment(), DietDayListener {
     }
 
     private lateinit var viewModel: ComidaDiaViewModel
+    private lateinit var baseDatos: FirebaseDatabase
     private lateinit var binding: ComidaDiaFragmentBinding
     private lateinit var dietMealsAdapter: MealAdapter
+
     // TODO: Referenciar datos obtenidos del fragmento anterior
     private val args : ComidaDiaFragmentArgs by navArgs<ComidaDiaFragmentArgs>()
 
@@ -35,19 +40,21 @@ class ComidaDiaFragment : Fragment(), DietDayListener {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.comida_dia_fragment, container, false)
+        baseDatos = FirebaseDatabase.getInstance()
         setupRecyclerView(view)
-        // setupExternalData(view)
+        setupExternalData(view)
         return view
     }
 
     private fun setupExternalData(view: View?) {
-        // val tvDia = view?.findViewById<TextView>(R.id.tvDia)
-        // tvDia?.text = args.comidaDia.day
+        val usuario = FirebaseAuth.getInstance().currentUser
+        val referencia = baseDatos.getReference("Clientes/${usuario?.uid}/dieta/${args.comidaDia.selected}/comidas/")
+
     }
 
     private fun setupRecyclerView(view: View?) {
         val context = requireContext()
-        dietMealsAdapter = MealAdapter(context, MyMeal.mealList!!)
+        dietMealsAdapter = MealAdapter(context, MyMeal.mealList!!, args.comidaDia.selected)
         val recyclerView = view?.findViewById<RecyclerView>(R.id.dietmeal_recycler_view)
         recyclerView?.adapter = dietMealsAdapter
         recyclerView?.setHasFixedSize(true)
@@ -73,6 +80,7 @@ class ComidaDiaFragment : Fragment(), DietDayListener {
         Log.i("Position", "Position meal: $position")
         val meal = dietMealsAdapter.meals[position]
         meal.day = args.comidaDia.day
+        meal.daySelected = args.comidaDia.selected
         val accion = ComidaDiaFragmentDirections.actionNavComidaDiaToOpcionesComidaFragment(meal)
         findNavController().navigate(accion)
     }

@@ -9,7 +9,17 @@
         android:id="@+id/nav_home"
         android:name="mx.madg.easyfit.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_dietas"
+            app:destination="@id/nav_dietas" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_rutinas"
+            app:destination="@id/nav_rutinas" />
+        <action
+            android:id="@+id/action_nav_home_to_acercaDeFragment"
+            app:destination="@id/acercaDeFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_perfil"
@@ -19,9 +29,13 @@
 
     <fragment
         android:id="@+id/nav_contactos"
-        android:name="mx.madg.easyfit.ui.slideshow.SlideshowFragment"
+        android:name="mx.madg.easyfit.ui.Contactos.ContactosFragment"
         android:label="@string/menu_contacto"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_contactos" >
+        <action
+            android:id="@+id/action_nav_contactos_to_contactoFragment"
+            app:destination="@id/contactoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_calendario"
         android:name="mx.madg.easyfit.ui.Calendario.CalendarioFragment"
@@ -88,5 +102,41 @@
             android:name="opciones_rutinas"
             app:argType="mx.madg.easyfit.Models.RutinaDay" />
     </fragment>
+    <fragment
+        android:id="@+id/contactoFragment"
+        android:name="mx.madg.easyfit.ui.Contactos.Contacto.ContactoFragment"
+        android:label="contacto_fragment"
+        tools:layout="@layout/contacto_fragment" >
+        <argument
+            android:name="contacto_cliente"
+            app:argType="mx.madg.easyfit.Models.Contacto.Contacto" />
+        <action
+            android:id="@+id/action_contactoFragment_to_dietaVistaNutriologoFragment"
+            app:destination="@id/dietaVistaNutriologoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dietaVistaNutriologoFragment"
+        android:name="mx.madg.easyfit.ui.Nutriologo.DietaVistaNutriologoFragment"
+        android:label="dieta_vista_nutriologo_fragment"
+        tools:layout="@layout/dieta_vista_nutriologo_fragment" >
+        <argument
+            android:name="vista_dieta"
+            app:argType="mx.madg.easyfit.Models.Cliente.Cliente" />
+    </fragment>
+    <fragment
+        android:id="@+id/acercaDeFragment"
+        android:name="mx.madg.easyfit.AcercaDeFragment"
+        android:label="acerca_de_fragment"
+        tools:layout="@layout/acerca_de_fragment" />
+    <fragment
+        android:id="@+id/nav_perfil_entrenador"
+        android:name="mx.madg.easyfit.EntrenadorFragment"
+        android:label="entrenador_fragment"
+        tools:layout="@layout/entrenador_fragment" />
+    <fragment
+        android:id="@+id/nav_perfil_nutriologo"
+        android:name="mx.madg.easyfit.NutriologoFragment"
+        android:label="nutriologo_fragment"
+        tools:layout="@layout/nutriologo_fragment" />
 
 </navigation>

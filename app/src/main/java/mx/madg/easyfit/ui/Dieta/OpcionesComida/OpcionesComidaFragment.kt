@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.FirebaseDatabase
 import mx.madg.easyfit.Models.*
 import mx.madg.easyfit.Models.Adaptadores.OptionAdapter
 import mx.madg.easyfit.Models.Listeners.DietDayListener
@@ -25,8 +26,10 @@ class OpcionesComidaFragment : Fragment(), DietDayListener {
     }
 
     private lateinit var viewModel: OpcionesComidaViewModel
+    private lateinit var baseDatos: FirebaseDatabase
     private  lateinit var dietOptionsAdapter: OptionAdapter
     private lateinit var binding: OpcionesComidaFragmentBinding
+
     // TODO: Referenciar datos obtenidos del fragmento anterior
     private val args : OpcionesComidaFragmentArgs by navArgs<OpcionesComidaFragmentArgs>()
 
@@ -35,6 +38,7 @@ class OpcionesComidaFragment : Fragment(), DietDayListener {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.opciones_comida_fragment, container, false)
+        baseDatos = FirebaseDatabase.getInstance()
         setupRecyclerView(view)
         setupExternalData(view)
         return view
@@ -55,8 +59,9 @@ class OpcionesComidaFragment : Fragment(), DietDayListener {
     }
 
     private fun setupExternalData(view: View?) {
-        val tvDiaDeLaSemana = view?.findViewById<TextView>(R.id.tvDiaDeLaSemana)
+        val tvDiaDeLaSemana = view?.findViewById<TextView>(R.id.tvNombreContacto)
         val tvComidaDelDia = view?.findViewById<TextView>(R.id.tvMeal)
+        //val tvHorario = view?.findViewById<TextView>(R.id.tvDate)
         tvDiaDeLaSemana?.text = args.opcionDelDia.day
         tvComidaDelDia?.text = args.opcionDelDia.meal
     }
@@ -79,6 +84,8 @@ class OpcionesComidaFragment : Fragment(), DietDayListener {
         Log.i("Position", "Position meal: $position")
         val opcion = dietOptionsAdapter.options[position]
         opcion.day = args.opcionDelDia.day
+        opcion.daySelected = args.opcionDelDia.daySelected
+        opcion.mealSelected = args.opcionDelDia.selected
         val accion = OpcionesComidaFragmentDirections.actionOpcionesComidaFragmentToOpcionFragment(opcion)
         findNavController().navigate(accion)
     }

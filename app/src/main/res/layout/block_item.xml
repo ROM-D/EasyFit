@@ -18,7 +18,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/tvDiaDeLaSemana"
+            android:id="@+id/tvNombreContacto"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

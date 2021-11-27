@@ -1,22 +1,16 @@
 package mx.madg.easyfit.Models.Adaptadores
 
 import android.content.Context
-import android.os.Build
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.annotation.RequiresApi
-import androidx.core.util.rangeTo
 import androidx.recyclerview.widget.RecyclerView
 import mx.madg.easyfit.Models.Listeners.DietDayListener
 import mx.madg.easyfit.Models.DietaDay
 import mx.madg.easyfit.R
-import java.sql.Time
-import java.time.LocalDate
-import java.time.LocalDateTime
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -38,7 +32,7 @@ class DayAdapter(val context: Context, var days: ArrayList<DietaDay>) : Recycler
 
         val first = calendar.firstDayOfWeek
 
-        private val txtDietDay = itemView.findViewById<TextView>(R.id.tvDiaDeLaSemana)
+        private val txtDietDay = itemView.findViewById<TextView>(R.id.tvNombreContacto)
         private val txtDate = itemView.findViewById<TextView>(R.id.tvDate)
         // private val imvDone = itemView.findViewById<ImageView>(R.id.imv_favorites)
         private val layout = itemView.findViewById<LinearLayout>(R.id.cLayout) // change to LL

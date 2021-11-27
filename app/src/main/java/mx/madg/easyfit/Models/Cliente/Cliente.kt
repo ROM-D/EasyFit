@@ -1,5 +1,6 @@
 package mx.madg.easyfit.Models.Cliente
 import mx.madg.easyfit.Models.Dieta.Dia
+import java.io.Serializable
 
 data class Cliente (
     var id:String = "",
@@ -14,4 +15,5 @@ data class Cliente (
     var numeroDePliegues:Int = 0,
     var nutriologo:String?="",
     var entrenador:String?="",
-)
+    var tipo: Int = 0,
+) : Serializable

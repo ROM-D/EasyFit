@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.firebase.ui.auth.AuthUI
@@ -26,7 +27,7 @@ class PerfilClienteFragment : Fragment() {
 
     private lateinit var perfilClienteViewModel: PerfilClienteViewModel
     private var _binding: FragmentPerfilClienteBinding? = null
-
+    private lateinit var dietas: ArrayList<Dia>  // TODO: Retrieve dieta from user
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -62,9 +63,12 @@ class PerfilClienteFragment : Fragment() {
         //Se actualiza cada vez que me llegue un dato
         referencia.addValueEventListener(object: ValueEventListener { //Este me da avisos o actualizaciones en tiempo real
             override fun onDataChange(snapshot: DataSnapshot) {
-                //println("LA REFERENCIA: ${referencia}")
-                //println("EL SNAPSHOT: ${snapshot}")
+                println("LA REFERENCIA: ${referencia}")
+                println("EL SNAPSHOT: ${snapshot}")
                 val cliente = snapshot.getValue(Cliente::class.java)
+
+                dietas = cliente?.dieta!!
+
                 binding.tvNombre.setText(cliente?.nombre.toString())
                 val id = "id: " + cliente?.id.toString()
                 binding.tvId.setText(id)
@@ -87,7 +91,9 @@ class PerfilClienteFragment : Fragment() {
     private fun configurarEventos() {
         binding.btnSignout.setOnClickListener {
             AuthUI.getInstance().signOut(requireContext())
-            startActivity(Intent(activity, ActivityNav::class.java))
+            FirebaseAuth.getInstance().signOut()
+            // startActivity(Intent(activity, ActivityNav::class.java))
+            startActivity(Intent(activity, LoginActivity::class.java))
         }
 
         binding.btnActualizarPerfil.setOnClickListener{
@@ -98,23 +104,31 @@ class PerfilClienteFragment : Fragment() {
     private fun ActualizarDatos() {
         val baseDatos = Firebase.database
         val usuario = FirebaseAuth.getInstance().currentUser
-        //Se actualiza cada vez que me llegue un dato
-        //Clientes
-        val referencia = baseDatos.getReference("Clientes/${usuario?.uid}")
-        //val id = baseDatos.getReference("Clientes/${usuario?.uid}/id").get()
-        val valor = Cliente(
-            usuario?.uid.toString(),
-            binding.tvNombre.text.toString(),
-            binding.tvEmail.text.toString(),
-            arrayListOf<Dia>(),
-            binding.tvPeso.text.toString().toDouble(),
-            binding.tvAltura.text.toString().toDouble(),
-            binding.tvSexo.text.toString(),
-            binding.tvPorcentajeMusculo.text.toString().toDouble(),
-            binding.tvPorcentajeGrasa.text.toString().toDouble(),
-            0,
-        )
-        referencia.setValue(valor)
+        val altura = binding.tvAltura.text.toString()
+        val Peso = binding.tvPeso.text.toString()
+        val PorcentajeGrasa = binding.tvPorcentajeGrasa.text.toString()
+        val PorcentajeMusculo = binding.tvPorcentajeMusculo.text.toString()
+
+        if(altura!="." && Peso!="." && PorcentajeGrasa!="."&& PorcentajeMusculo!="." && altura!="" && Peso!="" && PorcentajeGrasa!=""&& PorcentajeMusculo!=""){
+            val referencia = baseDatos.getReference("Clientes/${usuario?.uid}")
+            //val id = baseDatos.getReference("Clientes/${usuario?.uid}/id").get()
+            val valor = Cliente(
+                usuario?.uid.toString(),
+                binding.tvNombre.text.toString(),
+                binding.tvEmail.text.toString(),
+                dietas,
+                binding.tvPeso.text.toString().toDouble(),
+                binding.tvAltura.text.toString().toDouble(),
+                binding.tvSexo.text.toString(),
+                binding.tvPorcentajeMusculo.text.toString().toDouble(),
+                binding.tvPorcentajeGrasa.text.toString().toDouble(),
+                0,
+            )
+            referencia.setValue(valor)
+
+        }else{
+            Toast.makeText(context,"Introduce un valor valido", Toast.LENGTH_SHORT).show()
+        }
 
     }
 

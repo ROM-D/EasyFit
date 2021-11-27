@@ -42,27 +42,21 @@ class OpcionFragment : Fragment() {
 
     private fun setupExternalData(view: View?) {
         val usuario = FirebaseAuth.getInstance().currentUser
-        val referencia = baseDatos.getReference("Cliente/${usuario?.uid}/dieta/0/comidas/0/opciones/")
+        val referencia = baseDatos.getReference("Clientes/${usuario?.uid}/dieta/${args.miOpcion.daySelected}/comidas/${args.miOpcion.mealSelected}/opciones/${args.miOpcion.selected}/")
         val alimentos = view?.findViewById<TextView>(R.id.alimentos)
         val bebidas = view?.findViewById<TextView>(R.id.bebidas)
 
         // TODO: Get info from DB
         referencia.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-
-                for (c in snapshot.children) {
-                    println("Dato: RANDom")
-                }
-                //alimentos?.text = alimento?.alimentos
-                //bebidas?.text = alimento?.bebidas
-//                println("ALIMENTO: ${alimento}")
-
+                val opcion = snapshot.getValue(Opcion::class.java)
+                alimentos?.text = opcion?.alimentos
+                bebidas?.text = opcion?.bebidas
             }
 
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
-
         })
 
     }
